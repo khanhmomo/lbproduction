@@ -14,7 +14,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-dark/90 backdrop-blur border-b border-white/10">
+    <nav className="fixed top-0 inset-x-0 z-50 bg-darker/60 backdrop-blur-xl border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold tracking-tight text-white">
           LB<span className="text-gold-400">Production</span>
