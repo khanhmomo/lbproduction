@@ -10,6 +10,7 @@ const GOLD = '#F5C518';
 function Scene() {
   const points = useRef();
   const torus = useRef();
+  const inner = useRef();
   const group = useRef();
   const mouse = useRef({ x: 0, y: 0 });
 
@@ -40,7 +41,11 @@ function Scene() {
     }
     if (torus.current) {
       torus.current.rotation.x = t * 0.05 + scroll * 0.0004;
-      torus.current.rotation.z = t * 0.03;
+      torus.current.rotation.y = t * 0.04;
+    }
+    if (inner.current) {
+      inner.current.rotation.x = -t * 0.07;
+      inner.current.rotation.y = -t * 0.06;
     }
     if (points.current) {
       points.current.rotation.y = -t * 0.008;
@@ -68,14 +73,24 @@ function Scene() {
         />
       </points>
 
-      {/* Torus knot wireframe trung tâm */}
+      {/* Icosahedron wireframe trung tâm — khối đa diện 3D */}
       <mesh ref={torus} position={[0, 0, -2]}>
-        <torusKnotGeometry args={[1.6, 0.45, 128, 16]} />
+        <icosahedronGeometry args={[2.2, 0]} />
         <meshBasicMaterial
           color={GOLD}
           wireframe
           transparent
-          opacity={0.04}
+          opacity={0.07}
+        />
+      </mesh>
+      {/* Khối nhỏ lồng bên trong, xoay ngược */}
+      <mesh ref={inner} position={[0, 0, -2]}>
+        <icosahedronGeometry args={[1.2, 1]} />
+        <meshBasicMaterial
+          color={GOLD}
+          wireframe
+          transparent
+          opacity={0.05}
         />
       </mesh>
 
