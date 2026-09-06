@@ -16,6 +16,13 @@ const heroImages = [
 
 const services = [
   {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+        <rect x="2.5" y="6" width="14" height="12" rx="2.5" />
+        <path d="M16.5 10.5l5-3v9l-5-3" strokeLinejoin="round" />
+        <circle cx="8" cy="10" r="1.6" />
+      </svg>
+    ),
     title: 'Sản xuất hình ảnh',
     desc: 'Triển khai dịch vụ sản xuất hình ảnh và video sự kiện, giúp lưu giữ toàn bộ diễn biến một cách chân thật và có giá trị sử dụng lâu dài.',
     points: [
@@ -26,6 +33,13 @@ const services = [
     ],
   },
   {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+        <path d="M12 19l7-7a4.95 4.95 0 0 0-7-7l-7 7v7h7z" strokeLinejoin="round" />
+        <path d="M18 13l-6-6" />
+        <path d="M5 21l3.5-3.5" />
+      </svg>
+    ),
     title: 'Thiết kế ấn phẩm',
     desc: 'Cung cấp dịch vụ thiết kế ấn phẩm truyền thông, duy trì sự nhất quán về nhận diện thương hiệu trên mọi điểm chạm.',
     points: [
@@ -119,6 +133,7 @@ const reasons = [
 
 export default function Home() {
   const [heroIdx, setHeroIdx] = useState(0);
+  const [timecode, setTimecode] = useState('00:00:00:00');
   const heroContentRef = useRef(null);
 
   useEffect(() => {
@@ -126,6 +141,21 @@ export default function Home() {
       () => setHeroIdx((i) => (i + 1) % heroImages.length),
       4000
     );
+    return () => clearInterval(t);
+  }, []);
+
+  // Timecode kiểu máy quay: HH:MM:SS:FF (24fps)
+  useEffect(() => {
+    let f = 0;
+    const t = setInterval(() => {
+      f++;
+      const ff = f % 24;
+      const s = Math.floor(f / 24) % 60;
+      const m = Math.floor(f / (24 * 60)) % 60;
+      const h = Math.floor(f / (24 * 3600));
+      const p = (n) => String(n).padStart(2, '0');
+      setTimecode(`${p(h)}:${p(m)}:${p(s)}:${p(ff)}`);
+    }, 1000 / 24);
     return () => clearInterval(t);
   }, []);
 
@@ -163,8 +193,8 @@ export default function Home() {
             key={src}
             src={src}
             alt=""
-            className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1600ms] ${
-              i === heroIdx ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1600ms] ${
+              i === heroIdx ? 'opacity-100 animate-kenburns' : 'opacity-0'
             }`}
           />
         ))}
@@ -181,10 +211,23 @@ export default function Home() {
         <div className="absolute top-24 right-8 w-10 h-10 border-r-2 border-t-2 border-gold-400/50 hidden md:block" />
         <div className="absolute bottom-24 left-8 w-10 h-10 border-l-2 border-b-2 border-gold-400/50 hidden md:block" />
         <div className="absolute bottom-24 right-8 w-10 h-10 border-r-2 border-b-2 border-gold-400/50 hidden md:block" />
-        {/* REC indicator */}
-        <div className="absolute top-28 right-14 hidden md:flex items-center gap-2 text-xs tracking-widest text-gray-400">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse-glow" />
-          REC
+        {/* REC + timecode chạy */}
+        <div className="absolute top-28 right-14 hidden md:flex items-center gap-3 text-xs tracking-widest text-gray-300 font-mono">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-blink" />
+          REC <span className="text-gold-300">{timecode}</span>
+        </div>
+        {/* Thông số lens góc trái */}
+        <div className="absolute top-28 left-14 hidden md:block text-xs tracking-widest text-gray-400 font-mono">
+          4K · 24FPS · f/1.8 · ISO 800
+        </div>
+        {/* Crosshair trung tâm mờ */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 opacity-20 pointer-events-none hidden md:block">
+          <div className="absolute top-1/2 left-0 right-0 h-px bg-gold-400" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold-400" />
+        </div>
+        {/* Tag góc dưới */}
+        <div className="absolute bottom-28 left-14 hidden md:block text-xs tracking-[0.3em] text-gray-500 font-mono">
+          LB PRODUCTION — SHOWREEL
         </div>
 
         <div
@@ -196,14 +239,26 @@ export default function Home() {
             Motion · 3D Visual · Event
           </p>
           <h1 className="font-black leading-[0.95] tracking-tight">
-            <span className="block text-5xl md:text-7xl lg:text-8xl text-outline">
-              KIẾN TẠO
+            <span className="block overflow-hidden">
+              <span className="hero-line text-5xl md:text-7xl lg:text-8xl text-outline">
+                KIẾN TẠO
+              </span>
             </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl text-gradient-gold">
-              TRẢI NGHIỆM
+            <span className="block overflow-hidden">
+              <span
+                className="hero-line text-5xl md:text-7xl lg:text-8xl text-gradient-gold"
+                style={{ animationDelay: '0.15s' }}
+              >
+                TRẢI NGHIỆM
+              </span>
             </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl">
-              KHÔNG GIỚI HẠN
+            <span className="block overflow-hidden">
+              <span
+                className="hero-line text-5xl md:text-7xl lg:text-8xl"
+                style={{ animationDelay: '0.3s' }}
+              >
+                KHÔNG GIỚI HẠN
+              </span>
             </span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -247,6 +302,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Film strip divider */}
+      <div className="film-strip h-10 opacity-60" />
+
       <section id="about" className="relative py-28 px-6 overflow-hidden">
         <span className="absolute -top-6 right-0 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
           MEDIA
@@ -274,6 +332,23 @@ export default function Home() {
             >
               Hành trình của chúng tôi →
             </a>
+            {/* Stats */}
+            <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
+              {[
+                { n: '2024', l: 'Thành lập' },
+                { n: '3', l: 'Phòng ban' },
+                { n: '4K', l: 'Chuẩn hình ảnh' },
+              ].map((s) => (
+                <div key={s.l}>
+                  <p className="text-3xl md:text-4xl font-black text-gradient-gold">
+                    {s.n}
+                  </p>
+                  <p className="text-xs uppercase tracking-widest text-gray-500 mt-1">
+                    {s.l}
+                  </p>
+                </div>
+              ))}
+            </div>
           </Reveal>
           <Reveal delay={150} variant="right">
             <TiltCard className="card-glow rounded-2xl">
@@ -289,6 +364,33 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* Showreel band */}
+      <a
+        href="/projects"
+        className="group relative block py-20 px-6 overflow-hidden border-y border-gold-400/15"
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-400/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-700" />
+        <div className="relative max-w-7xl mx-auto flex items-center justify-between gap-8">
+          <span className="text-4xl md:text-7xl font-black text-outline group-hover:text-gold-400/20 transition duration-500 whitespace-nowrap">
+            SHOWREEL
+          </span>
+          <span className="flex items-center gap-4 shrink-0">
+            <span className="hidden md:block text-sm text-gray-400 group-hover:text-gold-300 transition">
+              Xem các dự án tiêu biểu
+            </span>
+            <span className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gold-400/60 flex items-center justify-center group-hover:bg-gold-400 group-hover:shadow-[0_0_50px_rgba(245,197,24,0.5)] transition-all duration-500">
+              <svg
+                className="w-6 h-6 md:w-8 md:h-8 text-gold-400 group-hover:text-black transition translate-x-0.5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </a>
 
       <section id="services" className="relative py-28 px-6 overflow-hidden">
         <span className="absolute top-10 -left-10 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
@@ -309,9 +411,12 @@ export default function Home() {
               <Reveal key={idx} delay={idx * 150} variant="scale">
                 <TiltCard className="card-glow rounded-2xl h-full">
                   <div className="h-full p-8 glass rounded-2xl">
-                    <span className="block text-5xl font-black text-outline mb-4">
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
+                    <div className="flex items-start justify-between mb-4">
+                      <span className="text-gold-400">{s.icon}</span>
+                      <span className="text-5xl font-black text-outline">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                    </div>
                     <h3 className="text-xl font-semibold mb-4 text-gold-400">
                       {s.title}
                     </h3>
