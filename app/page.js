@@ -134,6 +134,17 @@ export default function Home() {
         <div className="absolute -right-32 top-1/4 w-[420px] h-[420px] rounded-full border border-gold-400/20 animate-spin-slow hidden lg:block" />
         <div className="absolute -right-20 top-1/4 w-[420px] h-[420px] rounded-full border border-dashed border-gold-400/10 animate-spin-slow hidden lg:block" style={{ animationDirection: 'reverse' }} />
 
+        {/* Viewfinder corners — khung ngắm máy quay */}
+        <div className="absolute top-24 left-8 w-10 h-10 border-l-2 border-t-2 border-gold-400/50 hidden md:block" />
+        <div className="absolute top-24 right-8 w-10 h-10 border-r-2 border-t-2 border-gold-400/50 hidden md:block" />
+        <div className="absolute bottom-24 left-8 w-10 h-10 border-l-2 border-b-2 border-gold-400/50 hidden md:block" />
+        <div className="absolute bottom-24 right-8 w-10 h-10 border-r-2 border-b-2 border-gold-400/50 hidden md:block" />
+        {/* REC indicator */}
+        <div className="absolute top-28 right-14 hidden md:flex items-center gap-2 text-xs tracking-widest text-gray-400">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse-glow" />
+          REC
+        </div>
+
         <div
           ref={heroContentRef}
           className="relative text-center max-w-5xl will-change-transform"
