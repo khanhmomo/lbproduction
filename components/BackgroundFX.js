@@ -50,13 +50,13 @@ export default function BackgroundFX() {
     <div className="fixed inset-0 -z-10 overflow-hidden bg-darker" aria-hidden>
       {/* Layer parallax chậm — aurora orbs */}
       <div ref={slowRef} className="absolute inset-0 will-change-transform">
-        <div className="absolute -top-48 -left-48 w-[620px] h-[620px] rounded-full bg-gold-400/15 blur-[140px] animate-aurora" />
+        <div className="absolute -top-48 -left-48 w-[520px] h-[520px] rounded-full bg-gold-400/12 blur-[90px] animate-aurora" />
         <div
-          className="absolute top-1/4 -right-48 w-[520px] h-[520px] rounded-full bg-violet-600/15 blur-[150px] animate-aurora"
+          className="absolute top-1/4 -right-48 w-[440px] h-[440px] rounded-full bg-violet-600/12 blur-[100px] animate-aurora"
           style={{ animationDelay: '-6s' }}
         />
         <div
-          className="absolute bottom-0 left-1/3 w-[520px] h-[520px] rounded-full bg-cyan-500/10 blur-[160px] animate-aurora"
+          className="absolute bottom-0 left-1/3 w-[440px] h-[440px] rounded-full bg-cyan-500/8 blur-[100px] animate-aurora"
           style={{ animationDelay: '-11s' }}
         />
       </div>

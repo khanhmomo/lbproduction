@@ -13,10 +13,10 @@ function Scene() {
   const group = useRef();
   const mouse = useRef({ x: 0, y: 0 });
 
-  // 1500 điểm rải trong hình cầu dẹt
+  // 600 điểm rải trong hình cầu dẹt
   const positions = useMemo(() => {
-    const arr = new Float32Array(1500 * 3);
-    for (let i = 0; i < 1500; i++) {
+    const arr = new Float32Array(600 * 3);
+    for (let i = 0; i < 600; i++) {
       const r = 4 + Math.random() * 6;
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
@@ -100,8 +100,8 @@ export default function ParticleField3D() {
     >
       <Canvas
         camera={{ position: [0, 0, 8], fov: 55 }}
-        gl={{ alpha: true, antialias: true }}
-        dpr={[1, 1.5]}
+        gl={{ alpha: true, antialias: false, powerPreference: 'low-power' }}
+        dpr={1}
       >
         <Scene />
       </Canvas>
