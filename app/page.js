@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
@@ -77,6 +77,7 @@ const reasons = [
 
 export default function Home() {
   const [heroIdx, setHeroIdx] = useState(0);
+  const heroContentRef = useRef(null);
 
   useEffect(() => {
     const t = setInterval(
@@ -84,6 +85,26 @@ export default function Home() {
       4000
     );
     return () => clearInterval(t);
+  }, []);
+
+  // Hero content mờ dần + trôi lên khi cuộn xuống
+  useEffect(() => {
+    let raf;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const el = heroContentRef.current;
+        if (!el) return;
+        const y = window.scrollY;
+        el.style.opacity = Math.max(0, 1 - y / 550);
+        el.style.transform = `translateY(${y * 0.28}px)`;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
@@ -113,7 +134,10 @@ export default function Home() {
         <div className="absolute -right-32 top-1/4 w-[420px] h-[420px] rounded-full border border-gold-400/20 animate-spin-slow hidden lg:block" />
         <div className="absolute -right-20 top-1/4 w-[420px] h-[420px] rounded-full border border-dashed border-gold-400/10 animate-spin-slow hidden lg:block" style={{ animationDirection: 'reverse' }} />
 
-        <div className="relative text-center max-w-5xl">
+        <div
+          ref={heroContentRef}
+          className="relative text-center max-w-5xl will-change-transform"
+        >
           <p className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass text-xs md:text-sm uppercase tracking-[0.35em] text-gold-300 mb-8">
             <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-glow" />
             Motion · 3D Visual · Event
@@ -169,24 +193,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Marquee từ khóa */}
-      <div className="relative py-6 border-y border-gold-400/15 bg-darker/60 overflow-hidden">
-        <div className="flex whitespace-nowrap animate-marquee w-max">
-          {[0, 1].map((n) => (
-            <div key={n} className="flex items-center gap-8 pr-8 text-sm md:text-base font-semibold uppercase tracking-[0.25em] text-gray-400">
-              {['3D Motion', 'Visual Effects', 'Event Production', 'Brand Identity', 'Livestream', 'Post Production', 'Key Visual', 'Stage Design'].map((w) => (
-                <span key={w} className="flex items-center gap-8">
-                  {w} <span className="text-gold-400">✦</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <section id="about" className="py-28 px-6 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <Reveal>
+      <section id="about" className="relative py-28 px-6 overflow-hidden">
+        <span className="absolute -top-6 right-0 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
+          STUDIO
+        </span>
+        <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <Reveal variant="left">
             <p className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">
               Về chúng tôi
             </p>
@@ -208,7 +220,7 @@ export default function Home() {
               Hành trình của chúng tôi →
             </a>
           </Reveal>
-          <Reveal delay={150}>
+          <Reveal delay={150} variant="right">
             <TiltCard className="card-glow rounded-2xl">
               <div className="relative h-96 rounded-2xl overflow-hidden border border-gold-400/20">
                 <img
@@ -224,6 +236,9 @@ export default function Home() {
       </section>
 
       <section id="services" className="relative py-28 px-6 overflow-hidden">
+        <span className="absolute top-10 -left-10 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
+          MOTION
+        </span>
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold-400/8 rounded-full blur-[160px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <Reveal className="text-center mb-16">
@@ -236,7 +251,7 @@ export default function Home() {
           </Reveal>
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((s, idx) => (
-              <Reveal key={idx} delay={idx * 150}>
+              <Reveal key={idx} delay={idx * 150} variant="scale">
                 <TiltCard className="card-glow rounded-2xl h-full">
                   <div className="h-full p-8 glass rounded-2xl">
                     <span className="block text-5xl font-black text-outline mb-4">
@@ -263,6 +278,9 @@ export default function Home() {
       </section>
 
       <section id="why-us" className="relative py-28 px-6 overflow-hidden">
+        <span className="absolute bottom-0 right-0 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
+          VALUE
+        </span>
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold-400/10 rounded-full blur-[140px]" />
         </div>
@@ -303,10 +321,13 @@ export default function Home() {
       </section>
 
       <section id="team" className="relative py-28 px-6 overflow-hidden">
+        <span className="absolute top-0 -left-6 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
+          TEAM
+        </span>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[160px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <Reveal>
+            <Reveal variant="left">
               <TiltCard className="card-glow rounded-2xl">
                 <div className="relative h-[420px] rounded-2xl overflow-hidden border border-gold-400/20">
                   <img
@@ -318,7 +339,7 @@ export default function Home() {
                 </div>
               </TiltCard>
             </Reveal>
-            <Reveal delay={150}>
+            <Reveal delay={150} variant="right">
               <p className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">
                 Con người
               </p>
@@ -356,6 +377,9 @@ export default function Home() {
       </section>
 
       <section id="contact" className="relative py-28 px-6 overflow-hidden">
+        <span className="absolute top-4 right-0 text-[9rem] md:text-[12rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
+          CONTACT
+        </span>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/8 rounded-full blur-[160px] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto">
           <Reveal className="text-center mb-12">
