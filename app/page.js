@@ -234,10 +234,6 @@ export default function Home() {
           ref={heroContentRef}
           className="relative text-center max-w-5xl will-change-transform"
         >
-          <p className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass text-xs md:text-sm uppercase tracking-[0.35em] text-gold-300 mb-8">
-            <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-glow" />
-            Motion · 3D Visual · Event
-          </p>
           <h1 className="font-black leading-[1.12] tracking-tight space-y-1">
             <span className="block overflow-hidden py-2">
               <span className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline">
