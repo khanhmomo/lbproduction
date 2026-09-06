@@ -373,26 +373,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="team" className="relative py-28 px-6 overflow-hidden">
+      <section id="team" className="relative py-28 overflow-hidden">
         <span className="absolute top-0 -left-6 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
           TEAM
         </span>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[160px] pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <Reveal variant="left">
-              <TiltCard className="card-glow rounded-2xl">
-                <div className="relative h-[420px] rounded-2xl overflow-hidden border border-gold-400/20">
-                  <img
-                    src="/team.jpg"
-                    alt="Đội ngũ LBProduction"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-darker/70 to-transparent" />
-                </div>
-              </TiltCard>
-            </Reveal>
-            <Reveal delay={150} variant="right">
+        <div className="relative grid lg:grid-cols-2 gap-12 items-center">
+          <Reveal variant="left" className="h-full">
+            <div className="relative h-[420px] lg:h-[560px] [mask-image:linear-gradient(to_right,black_55%,transparent_98%)]">
+              <img
+                src="/team.jpg"
+                alt="Đội ngũ LBProduction"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-darker/60 to-transparent" />
+            </div>
+          </Reveal>
+          <Reveal
+            delay={150}
+            variant="right"
+            className="px-6 lg:pl-0 lg:pr-[max(1.5rem,calc((100vw_-_80rem)/2_+_1.5rem))]"
+          >
               <p className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">
                 Con người
               </p>
@@ -426,7 +427,6 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
-        </div>
       </section>
 
       <section id="contact" className="relative py-28 px-6 overflow-hidden">
