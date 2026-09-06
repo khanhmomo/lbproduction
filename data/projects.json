@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "title": "Lễ ra mắt sản phẩm TechX",
+    "category": "Sự kiện",
+    "client": "TechX",
+    "description": "Sản xuất toàn bộ kịch bản, sân khấu 3D và media cho buổi ra mắt.",
+    "imageUrl": "https://images.unsplash.com/photo-1540575467063-17850e3d28b9?auto=format&fit=crop&w=800&q=80",
+    "createdAt": "2024-01-15T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "Booth 3D Vietnam Expo",
+    "category": "3D Visual",
+    "client": "Vietnam Expo",
+    "description": "Thiết kế gian hàng 3D ấn tượng, tối ưu trải nghiệm khách tham quan.",
+    "imageUrl": "https://images.unsplash.com/photo-1514525253440-b393452e8220?auto=format&fit=crop&w=800&q=80",
+    "createdAt": "2024-02-20T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "Chiến dịch Activation Heineken",
+    "category": "Activation",
+    "client": "Heineken",
+    "description": "Tổ chức chuỗi activation tại các trung tâm thương mại lớn.",
+    "imageUrl": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800&q=80",
+    "createdAt": "2024-03-10T00:00:00.000Z"
+  }
+]
