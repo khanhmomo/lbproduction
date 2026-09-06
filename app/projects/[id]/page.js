@@ -44,7 +44,7 @@ export default function ProjectDetail() {
 
   if (error) {
     return (
-      <main className="min-h-screen bg-dark text-white flex items-center justify-center p-6">
+      <main className="min-h-screen text-white flex items-center justify-center p-6">
         <div className="text-center">
           <p className="text-red-400 mb-4">{error}</p>
           <Link href="/" className="text-gold-400 hover:underline">
@@ -57,14 +57,14 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <main className="min-h-screen bg-dark text-white flex items-center justify-center">
+      <main className="min-h-screen text-white flex items-center justify-center">
         <p className="text-gray-400">Đang tải dự án...</p>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-dark text-white">
+    <main className="min-h-screen text-white">
       <nav className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tight">

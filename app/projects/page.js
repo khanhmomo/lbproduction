@@ -32,7 +32,7 @@ export default function Projects() {
   const [featured, ...rest] = filtered;
 
   return (
-    <main className="min-h-screen bg-dark text-white">
+    <main className="min-h-screen text-white">
       <Navbar />
 
       <section className="relative pt-32 pb-12 px-6 overflow-hidden">

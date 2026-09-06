@@ -26,7 +26,7 @@ const milestones = [
 
 export default function About() {
   return (
-    <main className="min-h-screen bg-dark text-white">
+    <main className="min-h-screen text-white">
       <Navbar />
 
       <section className="relative pt-32 pb-16 px-6 overflow-hidden">

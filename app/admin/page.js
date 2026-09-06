@@ -179,7 +179,7 @@ export default function Admin() {
 
   if (!auth) {
     return (
-      <main className="min-h-screen bg-dark text-white flex items-center justify-center p-6">
+      <main className="min-h-screen text-white flex items-center justify-center p-6">
         <div className="w-full max-w-sm bg-zinc-900 p-8 rounded-2xl border border-white/10">
           <h1 className="text-2xl font-bold mb-6 text-center">
             LB<span className="text-gold-400">Production</span> Admin
@@ -206,7 +206,7 @@ export default function Admin() {
   }
 
   return (
-    <main className="min-h-screen bg-dark text-white p-6 md:p-12">
+    <main className="min-h-screen text-white p-6 md:p-12">
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-10">
           <h1 className="text-3xl font-bold">

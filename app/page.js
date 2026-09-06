@@ -180,7 +180,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-dark text-white">
+    <main className="min-h-screen text-white">
       <Navbar />
 
       <section
