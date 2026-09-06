@@ -2,6 +2,7 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import BackgroundFX from '../components/BackgroundFX';
 import ScrollProgress from '../components/ScrollProgress';
+import ParticleField3D from '../components/ParticleField3D';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="vi" className={inter.variable}>
       <body className="font-sans antialiased">
         <BackgroundFX />
+        <ParticleField3D />
         <ScrollProgress />
         {children}
       </body>
