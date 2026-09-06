@@ -238,23 +238,23 @@ export default function Home() {
             <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse-glow" />
             Motion · 3D Visual · Event
           </p>
-          <h1 className="font-black leading-[1.08] tracking-tight">
-            <span className="block overflow-hidden pb-2 -mb-2">
-              <span className="hero-line text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-outline">
+          <h1 className="font-black leading-[1.15] tracking-tight">
+            <span className="block overflow-hidden py-3 -my-3">
+              <span className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline">
                 KIẾN TẠO
               </span>
             </span>
-            <span className="block overflow-hidden pb-2 -mb-2">
+            <span className="block overflow-hidden py-3 -my-3">
               <span
-                className="hero-line text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-gradient-gold"
+                className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
                 style={{ animationDelay: '0.15s' }}
               >
                 TRẢI NGHIỆM
               </span>
             </span>
-            <span className="block overflow-hidden pb-2 -mb-2">
+            <span className="block overflow-hidden py-3 -my-3">
               <span
-                className="hero-line text-4xl sm:text-6xl md:text-7xl lg:text-8xl"
+                className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
                 style={{ animationDelay: '0.3s' }}
               >
                 KHÔNG GIỚI HẠN
