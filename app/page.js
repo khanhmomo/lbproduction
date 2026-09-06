@@ -234,7 +234,7 @@ export default function Home() {
           ref={heroContentRef}
           className="relative text-center max-w-5xl will-change-transform"
         >
-          <h1 className="font-black leading-[1.12] tracking-tight space-y-1">
+          <h1 className="font-black leading-[1.15] tracking-tight space-y-3 md:space-y-4">
             <span className="block overflow-hidden py-2">
               <span className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline">
                 KIẾN TẠO
