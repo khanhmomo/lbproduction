@@ -257,10 +257,10 @@ export default function Home() {
               Về chúng tôi
             </p>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Event Production{' '}
-              <span className="text-gradient-gold">Media Team</span>
+              Event Production
               <br />
-              chuyên nghiệp
+              <span className="text-gradient-gold">Media Team</span> chuyên
+              nghiệp
             </h2>
             <p className="text-gray-300 leading-relaxed">
               Được thành lập từ niềm đam mê sáng tạo và kể chuyện bằng hình ảnh,
