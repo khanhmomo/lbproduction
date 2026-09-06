@@ -30,7 +30,7 @@ export default function About() {
       <Navbar />
 
       <section className="relative pt-32 pb-16 px-6 overflow-hidden">
-        <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[9rem] md:text-[15rem] font-black text-outline opacity-[0.06] select-none pointer-events-none leading-none whitespace-nowrap">
+        <span className="absolute top-14 left-1/2 -translate-x-1/2 text-[9rem] md:text-[15rem] font-black text-outline opacity-[0.06] select-none pointer-events-none leading-none whitespace-nowrap">
           JOURNEY
         </span>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gold-400/10 rounded-full blur-[140px] pointer-events-none" />

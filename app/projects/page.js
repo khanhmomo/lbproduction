@@ -36,7 +36,7 @@ export default function Projects() {
       <Navbar />
 
       <section className="relative pt-32 pb-12 px-6 overflow-hidden">
-        <span className="absolute -top-4 left-1/2 -translate-x-1/2 text-[10rem] md:text-[16rem] font-black text-outline opacity-[0.06] select-none pointer-events-none leading-none whitespace-nowrap">
+        <span className="absolute top-14 left-1/2 -translate-x-1/2 text-[10rem] md:text-[16rem] font-black text-outline opacity-[0.06] select-none pointer-events-none leading-none whitespace-nowrap">
           WORKS
         </span>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold-400/10 rounded-full blur-[140px] pointer-events-none" />
