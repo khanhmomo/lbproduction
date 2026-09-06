@@ -207,7 +207,8 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            LBProduction — studio chuyên <span className="text-gold-300">motion graphic, 3D visual</span> và
+            LBProduction — event production media team chuyên{' '}
+            <span className="text-gold-300">motion graphic, 3D visual</span> và
             sản xuất sự kiện. Chúng tôi biến ý tưởng thành những thước phim
             sống động.
           </p>
@@ -248,7 +249,7 @@ export default function Home() {
 
       <section id="about" className="relative py-28 px-6 overflow-hidden">
         <span className="absolute -top-6 right-0 text-[10rem] md:text-[14rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
-          STUDIO
+          MEDIA
         </span>
         <div className="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <Reveal variant="left">
@@ -256,7 +257,8 @@ export default function Home() {
               Về chúng tôi
             </p>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Studio <span className="text-gradient-gold">sáng tạo hình ảnh</span>
+              Event Production{' '}
+              <span className="text-gradient-gold">Media Team</span>
               <br />
               chuyên nghiệp
             </h2>
