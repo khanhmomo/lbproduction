@@ -34,16 +34,16 @@ function Scene() {
     const my = state.pointer.y;
 
     if (group.current) {
-      // Xoay theo scroll + parallax theo chuột
-      group.current.rotation.y = t * 0.05 + scroll * 0.0006 + mx * 0.15;
-      group.current.rotation.x = scroll * 0.0003 + my * 0.1;
+      // Xoay rất chậm theo scroll + chuột
+      group.current.rotation.y = t * 0.02 + scroll * 0.0002 + mx * 0.05;
+      group.current.rotation.x = scroll * 0.0001 + my * 0.03;
     }
     if (torus.current) {
-      torus.current.rotation.x = t * 0.12 + scroll * 0.001;
-      torus.current.rotation.z = t * 0.08;
+      torus.current.rotation.x = t * 0.05 + scroll * 0.0004;
+      torus.current.rotation.z = t * 0.03;
     }
     if (points.current) {
-      points.current.rotation.y = -t * 0.02;
+      points.current.rotation.y = -t * 0.008;
     }
   });
 
@@ -58,10 +58,10 @@ function Scene() {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.035}
+          size={0.03}
           color={GOLD}
           transparent
-          opacity={0.55}
+          opacity={0.25}
           sizeAttenuation
           depthWrite={false}
           blending={THREE.AdditiveBlending}
@@ -75,18 +75,18 @@ function Scene() {
           color={GOLD}
           wireframe
           transparent
-          opacity={0.08}
+          opacity={0.04}
         />
       </mesh>
 
       {/* Vòng tròn lớn bao quanh */}
       <mesh rotation={[Math.PI / 2.4, 0, 0]}>
         <torusGeometry args={[3.4, 0.008, 8, 128]} />
-        <meshBasicMaterial color={GOLD} transparent opacity={0.25} />
+        <meshBasicMaterial color={GOLD} transparent opacity={0.12} />
       </mesh>
       <mesh rotation={[Math.PI / 1.8, 0.4, 0]}>
         <torusGeometry args={[4.2, 0.006, 8, 128]} />
-        <meshBasicMaterial color="#ffffff" transparent opacity={0.1} />
+        <meshBasicMaterial color="#ffffff" transparent opacity={0.05} />
       </mesh>
     </group>
   );
