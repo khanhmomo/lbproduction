@@ -239,7 +239,7 @@ export default function Home() {
               KIẾN TẠO
             </span>
             <span
-              className="block animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
+              className="block animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold pt-3"
               style={{ animationDelay: '0.15s' }}
             >
               TRẢI NGHIỆM
