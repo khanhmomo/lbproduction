@@ -54,9 +54,7 @@ function Scene() {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
-            count={1500}
-            array={positions}
-            itemSize={3}
+            args={[positions, 3]}
           />
         </bufferGeometry>
         <pointsMaterial
