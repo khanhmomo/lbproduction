@@ -7,7 +7,7 @@ const navLinks = [
   { href: '/', label: 'Trang chủ' },
   { href: '/about', label: 'Về chúng tôi' },
   { href: '/projects', label: 'Dự án' },
-  { href: '/#contact', label: 'Liên hệ' },
+  { href: '/#contact', label: 'Kết nối' },
 ];
 
 export default function Navbar() {

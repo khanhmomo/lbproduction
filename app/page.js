@@ -52,6 +52,48 @@ const departments = [
   },
 ];
 
+// TODO: thay href bằng link kênh thật của LBProduction
+const socials = [
+  {
+    name: 'Facebook',
+    href: 'https://facebook.com/lbproduction',
+    icon: (
+      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8v3h2.7v7h2.8z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Instagram',
+    href: 'https://instagram.com/lbproduction',
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    name: 'YouTube',
+    href: 'https://youtube.com/@lbproduction',
+    icon: (
+      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.9C18.2 5 12 5 12 5s-6.2 0-7.8.3A2.6 2.6 0 0 0 2.4 7.2 27.4 27.4 0 0 0 2 12a27.4 27.4 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.9c1.6.3 7.8.3 7.8.3s6.2 0 7.8-.3a2.6 2.6 0 0 0 1.8-1.9A27.4 27.4 0 0 0 22 12a27.4 27.4 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'TikTok',
+    href: 'https://tiktok.com/@lbproduction',
+    icon: (
+      <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16.6 3c.4 2 1.8 3.6 3.9 3.9v3c-1.5 0-2.9-.5-3.9-1.2v6.6a5.9 5.9 0 1 1-5.9-5.9c.3 0 .7 0 1 .1v3.1a2.8 2.8 0 1 0 1.9 2.7V3h3z" />
+      </svg>
+    ),
+  },
+];
+
 const reasons = [
   {
     title: 'Đồng bộ',
@@ -389,52 +431,42 @@ export default function Home() {
 
       <section id="contact" className="relative py-28 px-6 overflow-hidden">
         <span className="absolute top-4 right-0 text-[9rem] md:text-[12rem] font-black text-outline opacity-[0.07] select-none pointer-events-none leading-none">
-          CONTACT
+          SOCIAL
         </span>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-400/8 rounded-full blur-[160px] pointer-events-none" />
-        <div className="relative max-w-4xl mx-auto">
-          <Reveal className="text-center mb-12">
+        <div className="relative max-w-4xl mx-auto text-center">
+          <Reveal>
             <p className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">
-              Liên hệ
+              Kết nối
             </p>
-            <h2 className="text-3xl md:text-5xl font-bold">
-              Bắt đầu <span className="text-gradient-gold">dự án của bạn</span>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              Theo dõi <span className="text-gradient-gold">LBProduction</span>
             </h2>
+            <p className="text-gray-400 max-w-xl mx-auto mb-12">
+              Cập nhật dự án mới nhất, hậu trường sản xuất và showreel trên các
+              kênh của chúng tôi.
+            </p>
           </Reveal>
           <Reveal delay={150}>
-            <form
-              className="space-y-6 glass p-8 md:p-10 rounded-2xl"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <div className="grid md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  placeholder="Họ tên"
-                  className="w-full p-4 bg-darker/60 border border-white/10 rounded-lg focus:border-gold-400 outline-none transition"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full p-4 bg-darker/60 border border-white/10 rounded-lg focus:border-gold-400 outline-none transition"
-                />
-              </div>
-              <input
-                type="text"
-                placeholder="Tiêu đề"
-                className="w-full p-4 bg-darker/60 border border-white/10 rounded-lg focus:border-gold-400 outline-none transition"
-              />
-              <textarea
-                rows={5}
-                placeholder="Nội dung"
-                className="w-full p-4 bg-darker/60 border border-white/10 rounded-lg focus:border-gold-400 outline-none transition"
-              ></textarea>
-              <button
-                type="submit"
-                className="px-10 py-4 bg-gold-400 text-black font-bold rounded-full hover:shadow-[0_0_40px_rgba(245,197,24,0.4)] transition"
-              >
-                Gửi tin nhắn
-              </button>
-            </form>
+            <div className="flex flex-wrap items-center justify-center gap-5">
+              {socials.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  className="group flex flex-col items-center gap-3"
+                >
+                  <span className="w-16 h-16 rounded-full glass flex items-center justify-center text-gray-300 group-hover:text-black group-hover:bg-gold-400 group-hover:border-gold-400 group-hover:shadow-[0_0_30px_rgba(245,197,24,0.45)] group-hover:-translate-y-1 transition-all duration-300">
+                    {s.icon}
+                  </span>
+                  <span className="text-xs uppercase tracking-widest text-gray-500 group-hover:text-gold-400 transition">
+                    {s.name}
+                  </span>
+                </a>
+              ))}
+            </div>
           </Reveal>
         </div>
       </section>
