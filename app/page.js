@@ -235,26 +235,20 @@ export default function Home() {
           className="relative text-center max-w-5xl will-change-transform"
         >
           <h1 className="font-black leading-[1.15] tracking-tight space-y-3 md:space-y-4">
-            <span className="block overflow-hidden py-2">
-              <span className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline">
-                KIẾN TẠO
-              </span>
+            <span className="block animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline">
+              KIẾN TẠO
             </span>
-            <span className="block overflow-hidden py-2">
-              <span
-                className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
-                style={{ animationDelay: '0.15s' }}
-              >
-                TRẢI NGHIỆM
-              </span>
+            <span
+              className="block animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
+              style={{ animationDelay: '0.15s' }}
+            >
+              TRẢI NGHIỆM
             </span>
-            <span className="block overflow-hidden py-2">
-              <span
-                className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
-                style={{ animationDelay: '0.3s' }}
-              >
-                KHÔNG GIỚI HẠN
-              </span>
+            <span
+              className="block animate-fade-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+              style={{ animationDelay: '0.3s' }}
+            >
+              KHÔNG GIỚI HẠN
             </span>
           </h1>
           <p className="mt-8 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
