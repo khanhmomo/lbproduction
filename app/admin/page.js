@@ -180,7 +180,7 @@ export default function Admin() {
   if (!auth) {
     return (
       <main className="min-h-screen text-white flex items-center justify-center p-6">
-        <div className="w-full max-w-sm bg-zinc-900 p-8 rounded-2xl border border-white/10">
+        <div className="w-full max-w-sm glass p-8 rounded-3xl">
           <h1 className="text-2xl font-bold mb-6 text-center">
             LB<span className="text-gold-400">Production</span> Admin
           </h1>
@@ -189,7 +189,7 @@ export default function Admin() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Mật khẩu"
-            className="w-full p-3 mb-4 bg-dark border border-white/10 rounded focus:border-gold-400 outline-none"
+            className="w-full p-3 mb-4 bg-darker border border-white/10 rounded-xl focus:border-gold-400 outline-none transition"
           />
           <button
             onClick={login}
@@ -232,7 +232,7 @@ export default function Admin() {
         )}
         <form
           onSubmit={handleSubmit}
-          className="grid md:grid-cols-2 gap-6 bg-zinc-900 p-6 rounded-2xl border border-white/5 mb-10"
+          className="grid md:grid-cols-2 gap-6 glass p-6 md:p-8 rounded-3xl mb-10"
         >
           <input
             required
@@ -382,7 +382,7 @@ export default function Admin() {
           {projects.map((p) => (
             <li
               key={p.id}
-              className="flex flex-col md:flex-row md:items-center justify-between bg-zinc-900 p-4 rounded-xl border border-white/5"
+              className="flex flex-col md:flex-row md:items-center justify-between bg-white/[0.03] p-4 rounded-2xl border border-white/[0.06] hover:border-gold-400/30 transition"
             >
               <div>
                 <h3 className="text-lg font-semibold text-gold-400">{p.title}</h3>

@@ -9,7 +9,7 @@ const variants = {
   scale: 'scale-90',
 };
 
-// Hiệu ứng xuất hiện khi cuộn tới (fade + trượt/scale)
+// Hiệu ứng xuất hiện khi cuộn tới (fade + trượt/scale, easing expo)
 export default function Reveal({
   children,
   delay = 0,
@@ -38,12 +38,15 @@ export default function Reveal({
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-700 ease-out ${
+      className={`${className} transition-all duration-1000 ${
         visible
           ? 'opacity-100 translate-x-0 translate-y-0 scale-100'
           : `opacity-0 ${variants[variant] || variants.up}`
       }`}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{
+        transitionDelay: `${delay}ms`,
+        transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      }}
     >
       {children}
     </div>

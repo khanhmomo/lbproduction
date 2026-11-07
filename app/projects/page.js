@@ -36,13 +36,13 @@ export default function Projects() {
       <Navbar />
 
       <section className="relative pt-32 pb-12 px-6 overflow-hidden">
-        <span className="absolute top-14 left-1/2 -translate-x-1/2 text-[10rem] md:text-[16rem] font-black text-outline opacity-[0.06] select-none pointer-events-none leading-none whitespace-nowrap">
+        <span className="absolute top-14 left-1/2 -translate-x-1/2 text-[10rem] md:text-[16rem] font-black text-outline-faint opacity-40 select-none pointer-events-none leading-none whitespace-nowrap">
           WORKS
         </span>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gold-400/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="relative max-w-7xl mx-auto text-center">
           <Reveal>
-            <p className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">
+            <p className="eyebrow mb-4 justify-center">
               Showcase
             </p>
             <h1 className="text-4xl md:text-6xl font-bold">
@@ -91,7 +91,7 @@ export default function Projects() {
               <Reveal>
                 <Link
                   href={`/projects/${featured.id}`}
-                  className="group relative block h-[380px] md:h-[520px] rounded-2xl overflow-hidden border border-white/5 hover:border-gold-400/50 hover:shadow-[0_0_60px_rgba(245,197,24,0.15)] transition mb-8"
+                  className="group relative block h-[380px] md:h-[520px] rounded-3xl overflow-hidden border border-white/[0.06] hover:border-gold-400/50 hover:shadow-[0_0_60px_rgba(245,197,24,0.15)] transition mb-8"
                 >
                 <img
                   src={featured.imageUrl || featured.images?.[0]}

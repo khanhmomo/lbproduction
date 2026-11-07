@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import Footer from '../../../components/Footer';
 import { driveImgFallback } from '../../../lib/driveImage';
 
 export default function ProjectDetail() {
@@ -65,7 +66,7 @@ export default function ProjectDetail() {
 
   return (
     <main className="min-h-screen text-white">
-      <nav className="border-b border-white/10">
+      <nav className="sticky top-0 z-40 bg-darker/70 backdrop-blur-xl border-b border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold tracking-tight">
             LB<span className="text-gold-400">Production</span>
@@ -117,7 +118,7 @@ export default function ProjectDetail() {
             {videos.map((v, idx) => (
               <div
                 key={v.id || idx}
-                className="rounded-2xl overflow-hidden border border-white/5 aspect-video bg-zinc-900"
+                className="rounded-3xl overflow-hidden border border-white/[0.08] aspect-video bg-zinc-900"
               >
                 <iframe
                   src={typeof v === 'string' ? v : v.embedUrl}
@@ -142,7 +143,7 @@ export default function ProjectDetail() {
               <button
                 key={idx}
                 onClick={() => setLightboxIdx(idx)}
-                className="block rounded-2xl overflow-hidden border border-white/5 hover:border-gold-400/50 transition cursor-zoom-in"
+                className="block rounded-3xl overflow-hidden border border-white/[0.08] hover:border-gold-400/50 transition cursor-zoom-in"
               >
                 <img
                   src={url}
@@ -208,9 +209,7 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      <footer className="py-10 border-t border-white/10 text-center text-gray-500 text-sm">
-        <p>&copy; 2024 LBProduction. All rights reserved.</p>
-      </footer>
+      <Footer />
     </main>
   );
 }

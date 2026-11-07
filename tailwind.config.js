@@ -15,11 +15,17 @@ module.exports = {
           500: '#E3B008',
           600: '#C99A0A',
         },
-        dark: '#0a0a0a',
-        darker: '#050505',
+        dark: '#0a0a0b',
+        darker: '#050506',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
+      },
+      letterSpacing: {
+        tightest: '-0.04em',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

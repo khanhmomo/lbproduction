@@ -30,16 +30,16 @@ export default function About() {
       <Navbar />
 
       <section className="relative pt-32 pb-16 px-6 overflow-hidden">
-        <span className="absolute top-14 left-1/2 -translate-x-1/2 text-[9rem] md:text-[15rem] font-black text-outline opacity-[0.06] select-none pointer-events-none leading-none whitespace-nowrap">
+        <span className="absolute top-14 left-1/2 -translate-x-1/2 text-[9rem] md:text-[15rem] font-black text-outline-faint opacity-40 select-none pointer-events-none leading-none whitespace-nowrap">
           JOURNEY
         </span>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-gold-400/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
           <Reveal>
-            <p className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4">
+            <p className="eyebrow mb-4 justify-center">
               Về chúng tôi
             </p>
-            <h1 className="text-3xl md:text-5xl font-bold mb-8">
+            <h1 className="text-3xl md:text-5xl font-bold mb-8 tracking-tight">
               Hành trình của{' '}
               <span className="text-gradient-gold">LB Production</span>
             </h1>
@@ -62,7 +62,7 @@ export default function About() {
 
       <section className="px-6 pb-16 max-w-7xl mx-auto">
         <Reveal variant="scale">
-          <div className="relative h-[300px] md:h-[480px] rounded-2xl overflow-hidden border border-gold-400/20 card-glow">
+          <div className="relative h-[300px] md:h-[480px] rounded-3xl overflow-hidden border border-white/[0.08] card-glow">
             <img
               src="/about_main.jpg"
               alt="Hành trình LB Production"
