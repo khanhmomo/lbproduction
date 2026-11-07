@@ -27,6 +27,16 @@ export default function Footer() {
               Event production media team — motion graphic, 3D visual và sản
               xuất sự kiện. Biến ý tưởng thành những thước phim sống động.
             </p>
+            {/* TODO: thay bằng email thật của LBProduction */}
+            <a
+              href="mailto:hello@lbproduction.vn"
+              className="group inline-flex items-center gap-2 mt-6 text-gold-400 font-semibold hover:text-gold-300 transition"
+            >
+              hello@lbproduction.vn
+              <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition">
+                ↗
+              </span>
+            </a>
           </div>
 
           <div>

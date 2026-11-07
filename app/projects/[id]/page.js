@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Footer from '../../../components/Footer';
 import { driveImgFallback } from '../../../lib/driveImage';
+import { projectYear } from '../../../lib/format';
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -88,6 +89,7 @@ export default function ProjectDetail() {
         <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 text-center">
           <span className="text-xs uppercase tracking-wider text-gold-400 font-semibold">
             {project.category}
+            {projectYear(project) && ` ${projectYear(project)}`}
           </span>
           <h1 className="text-3xl md:text-5xl font-bold mt-3">
             {project.title}

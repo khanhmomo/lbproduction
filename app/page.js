@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Reveal from '../components/Reveal';
 import TiltCard from '../components/TiltCard';
+import { projectYear } from '../lib/format';
 
 const heroImages = [
   '/hero/hero-1.jpg',
@@ -143,7 +145,18 @@ const reasons = [
 export default function Home() {
   const [heroIdx, setHeroIdx] = useState(0);
   const [timecode, setTimecode] = useState('00:00:00:00');
+  const [works, setWorks] = useState([]);
+  const [worksLoading, setWorksLoading] = useState(true);
   const heroContentRef = useRef(null);
+
+  // Index dự án nổi bật — 5 dự án mới nhất
+  useEffect(() => {
+    fetch('/api/projects')
+      .then((res) => res.json())
+      .then((data) => setWorks(Array.isArray(data) ? data.slice(0, 5) : []))
+      .catch(() => {})
+      .finally(() => setWorksLoading(false));
+  }, []);
 
   useEffect(() => {
     const t = setInterval(
@@ -385,32 +398,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== Showreel band ===== */}
-      <a
-        href="/projects"
-        className="group relative block py-20 px-6 overflow-hidden border-y border-white/[0.06]"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold-400/[0.06] to-transparent opacity-0 group-hover:opacity-100 transition duration-700" />
-        <div className="relative max-w-7xl mx-auto flex items-center justify-between gap-8">
-          <span className="text-4xl md:text-7xl font-black text-outline group-hover:text-gold-400/25 transition duration-500 whitespace-nowrap">
-            SHOWREEL
-          </span>
-          <span className="flex items-center gap-4 shrink-0">
-            <span className="hidden md:block text-sm text-gray-400 group-hover:text-gold-300 transition">
-              Xem các dự án tiêu biểu
-            </span>
-            <span className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-gold-400/50 flex items-center justify-center group-hover:bg-gold-400 group-hover:shadow-[0_0_50px_rgba(245,197,24,0.5)] group-hover:scale-110 transition-all duration-500">
-              <svg
-                className="w-6 h-6 md:w-8 md:h-8 text-gold-400 group-hover:text-black transition translate-x-0.5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-          </span>
+      {/* ===== Selected works — index kiểu PHNTM ===== */}
+      <section id="works" className="relative py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Reveal className="flex items-end justify-between gap-6 mb-8">
+            <div>
+              <p className="eyebrow mb-4">Dự án tiêu biểu</p>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+                Selected <span className="text-gradient-gold">Works</span>
+              </h2>
+            </div>
+            <Link
+              href="/projects"
+              className="group hidden sm:inline-flex items-center gap-2 text-sm text-gray-400 hover:text-gold-300 transition shrink-0"
+            >
+              Xem tất cả
+              <span className="group-hover:translate-x-1 transition">→</span>
+            </Link>
+          </Reveal>
+
+          <div>
+            {worksLoading ? (
+              <div className="border-t border-b border-white/[0.07] py-10 text-center text-gray-500 text-sm">
+                Đang tải dự án…
+              </div>
+            ) : works.length === 0 ? (
+              <div className="border-t border-b border-white/[0.07] py-10 text-center text-gray-500 text-sm">
+                Chưa có dự án nào.
+              </div>
+            ) : (
+              works.map((p, idx) => (
+                <Reveal
+                  key={p.id}
+                  delay={idx * 80}
+                  className="border-t border-white/[0.07] last:border-b"
+                >
+                  <Link
+                    href={`/projects/${p.id}`}
+                    className="group flex items-center justify-between gap-6 py-6 md:py-8"
+                  >
+                    <div className="flex items-baseline gap-5 md:gap-8 min-w-0">
+                      <span className="w-8 shrink-0 text-xs font-mono text-gray-600">
+                        {String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl md:text-4xl font-bold tracking-tight truncate text-white/90 group-hover:text-gold-300 group-hover:translate-x-2 transition-all duration-500 ease-out-expo">
+                        {p.title}
+                      </h3>
+                    </div>
+                    <div className="flex items-center gap-4 md:gap-6 shrink-0">
+                      <span className="hidden sm:block text-[11px] uppercase tracking-[0.2em] text-gray-500 group-hover:text-gold-400 transition">
+                        {p.category}
+                        {projectYear(p) && ` ${projectYear(p)}`}
+                      </span>
+                      <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-500 group-hover:border-gold-400/60 group-hover:text-gold-400 group-hover:rotate-45 transition-all duration-500">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M7 17L17 7M9 7h8v8"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                </Reveal>
+              ))
+            )}
+          </div>
+
+          <Link
+            href="/projects"
+            className="group mt-8 inline-flex sm:hidden items-center gap-2 text-sm text-gold-400"
+          >
+            Xem tất cả{' '}
+            <span className="group-hover:translate-x-1 transition">→</span>
+          </Link>
         </div>
-      </a>
+      </section>
 
       {/* ===== Services ===== */}
       <section id="services" className="relative py-28 px-6 overflow-hidden">

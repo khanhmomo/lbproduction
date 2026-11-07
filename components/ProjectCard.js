@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { driveImgFallback } from '../lib/driveImage';
+import { projectYear } from '../lib/format';
 
 export default function ProjectCard({ project }) {
   const cover = project.imageUrl || project.images?.[0];
@@ -34,6 +35,7 @@ export default function ProjectCard({ project }) {
       <div className="absolute bottom-0 inset-x-0 p-6">
         <span className="inline-block text-[11px] uppercase tracking-[0.2em] text-gold-300 font-semibold bg-gold-400/10 border border-gold-400/20 rounded-full px-3 py-1">
           {project.category}
+          {projectYear(project) && ` ${projectYear(project)}`}
         </span>
         <h3 className="text-xl font-bold mt-3 tracking-tight">{project.title}</h3>
         <p className="text-gray-300 text-sm mt-2 line-clamp-2 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition duration-500">

@@ -7,6 +7,7 @@ import Footer from '../../components/Footer';
 import ProjectCard from '../../components/ProjectCard';
 import Reveal from '../../components/Reveal';
 import { driveImgFallback } from '../../lib/driveImage';
+import { projectYear } from '../../lib/format';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -101,8 +102,9 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 p-8 md:p-12">
-                  <span className="text-gold-400 text-xs uppercase tracking-wider font-semibold">
+                  <span className="inline-block text-[11px] uppercase tracking-[0.2em] text-gold-300 font-semibold bg-gold-400/10 border border-gold-400/20 rounded-full px-3 py-1">
                     {featured.category}
+                    {projectYear(featured) && ` ${projectYear(featured)}`}
                   </span>
                   <h2 className="text-3xl md:text-5xl font-bold mt-3">
                     {featured.title}
