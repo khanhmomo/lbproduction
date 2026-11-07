@@ -298,8 +298,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Progress bars chọn slide */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2">
+        {/* Progress bars chọn slide — chỉ desktop */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 hidden sm:flex gap-2">
           {heroImages.map((_, i) => (
             <button
               key={i}
@@ -311,8 +311,8 @@ export default function Home() {
             />
           ))}
         </div>
-        {/* Scroll indicator */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-6 h-10 rounded-full border border-white/20 flex justify-center pt-2">
+        {/* Scroll indicator — chỉ desktop */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-6 h-10 rounded-full border border-white/20 hidden sm:flex justify-center pt-2">
           <span className="w-1 h-2 rounded-full bg-gold-400 animate-scroll-dot" />
         </div>
       </section>
