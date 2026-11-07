@@ -6,7 +6,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import ProjectCard from '../../components/ProjectCard';
 import Reveal from '../../components/Reveal';
-import { driveImgFallback } from '../../lib/driveImage';
+import { driveImgFallback, driveImgSrc } from '../../lib/driveImage';
 import { projectYear } from '../../lib/format';
 
 export default function Projects() {
@@ -95,7 +95,7 @@ export default function Projects() {
                   className="group relative block h-[380px] md:h-[520px] rounded-3xl overflow-hidden border border-white/[0.06] hover:border-gold-400/50 hover:shadow-[0_0_60px_rgba(245,197,24,0.15)] transition mb-8"
                 >
                 <img
-                  src={featured.imageUrl || featured.images?.[0]}
+                  src={driveImgSrc(featured.imageUrl || featured.images?.[0])}
                   alt={featured.title}
                   onError={driveImgFallback}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"

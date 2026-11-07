@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { driveImgFallback } from '../lib/driveImage';
+import { driveImgFallback, driveImgSrc } from '../lib/driveImage';
 import { projectYear } from '../lib/format';
 
 export default function ProjectCard({ project }) {
@@ -12,7 +12,7 @@ export default function ProjectCard({ project }) {
       className="group relative block h-80 rounded-3xl overflow-hidden border border-white/[0.06] hover:border-gold-400/40 hover:shadow-[0_20px_60px_rgba(245,197,24,0.12)] transition duration-500"
     >
       <img
-        src={cover}
+        src={driveImgSrc(cover)}
         alt={project.title}
         onError={driveImgFallback}
         className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out-expo"

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { driveImgFallback } from '../../lib/driveImage';
+import { driveImgFallback, driveImgSrc } from '../../lib/driveImage';
 
 // Chuyển link YouTube (watch / youtu.be / shorts / embed) sang dạng embed
 const toYoutubeEmbed = (url) => {
@@ -19,6 +19,7 @@ const emptyForm = {
   description: '',
   imageUrl: '',
   client: '',
+  logoUrl: '',
   driveFolder: '',
   youtubeUrl: '',
 };
@@ -118,6 +119,7 @@ export default function Admin() {
       description: p.description || '',
       imageUrl: p.imageUrl || '',
       client: p.client || '',
+      logoUrl: p.logoUrl || '',
       driveFolder: p.driveFolder || '',
       youtubeUrl: ytId ? `https://youtu.be/${ytId}` : '',
     });
@@ -264,6 +266,13 @@ export default function Admin() {
             placeholder="URL ảnh đại diện (tự điền từ Drive)"
             className="w-full p-3 bg-dark border border-white/10 rounded focus:border-gold-400 outline-none"
           />
+          <input
+            name="logoUrl"
+            value={form.logoUrl}
+            onChange={handleChange}
+            placeholder="URL logo khách hàng (PNG nền trong suốt / link Drive)"
+            className="w-full p-3 bg-dark border border-white/10 rounded focus:border-gold-400 outline-none"
+          />
           <div className="md:col-span-2 flex flex-col sm:flex-row gap-3">
             <input
               name="driveFolder"
@@ -326,7 +335,7 @@ export default function Admin() {
                       }`}
                     >
                       <img
-                        src={img.url}
+                        src={driveImgSrc(img.url)}
                         alt={img.name}
                         loading="lazy"
                         onError={driveImgFallback}

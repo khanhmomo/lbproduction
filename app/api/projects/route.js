@@ -11,6 +11,7 @@ function toClient(p) {
     excerpt: p.excerpt || '',
     description: p.description,
     imageUrl: p.imageUrl,
+    logoUrl: p.logoUrl || '',
     images: p.images || [],
     videos: p.videos || [],
     driveFolder: p.driveFolder,
@@ -46,6 +47,7 @@ export async function POST(request) {
       imageUrl: body.imageUrl || body.images?.[0] || '',
       images: body.images || [],
       videos: body.videos || [],
+      logoUrl: body.logoUrl || '',
       driveFolder: body.driveFolder || '',
       createdAt: new Date().toISOString(),
     };
@@ -79,6 +81,7 @@ export async function PUT(request) {
       imageUrl: body.imageUrl || body.images?.[0] || '',
       images: body.images || [],
       videos: body.videos || [],
+      logoUrl: body.logoUrl || '',
       driveFolder: body.driveFolder || '',
     };
 

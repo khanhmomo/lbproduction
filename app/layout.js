@@ -3,7 +3,10 @@ import { Inter } from 'next/font/google';
 import BackgroundFX from '../components/BackgroundFX';
 import ScrollProgress from '../components/ScrollProgress';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const inter = Inter({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-inter',
+});
 
 export const metadata = {
   title: 'LBProduction - Sự kiện & Media',

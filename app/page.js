@@ -248,23 +248,23 @@ export default function Home() {
             Event Production Media Team
           </span>
 
-          <h1 className="mt-8 font-black leading-[1.08] tracking-tightest">
-            <span className="block overflow-hidden pb-1">
-              <span className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline-faint">
+          <h1 className="mt-8 font-black leading-[1.02] tracking-tight">
+            <span className="block overflow-hidden">
+              <span className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline-faint">
                 KIẾN TẠO
               </span>
             </span>
-            <span className="block overflow-hidden py-2">
+            <span className="block overflow-hidden">
               <span
-                className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
+                className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
                 style={{ animationDelay: '0.12s' }}
               >
                 TRẢI NGHIỆM
               </span>
             </span>
-            <span className="block overflow-hidden pt-1 pb-2">
+            <span className="block overflow-hidden">
               <span
-                className="hero-line text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
                 style={{ animationDelay: '0.24s' }}
               >
                 KHÔNG GIỚI HẠN

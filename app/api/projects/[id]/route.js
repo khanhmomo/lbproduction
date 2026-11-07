@@ -21,6 +21,7 @@ export async function GET(request, { params }) {
       excerpt: p.excerpt || '',
       description: p.description,
       imageUrl: p.imageUrl,
+      logoUrl: p.logoUrl || '',
       images: p.images || [],
       videos: p.videos || [],
       driveFolder: p.driveFolder,
