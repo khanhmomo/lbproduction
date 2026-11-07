@@ -242,13 +242,7 @@ export default function Home() {
           ref={heroContentRef}
           className="relative text-center max-w-5xl will-change-transform"
         >
-          {/* Eyebrow pill */}
-          <span className="inline-flex items-center gap-2.5 glass rounded-full px-5 py-2 text-[11px] uppercase tracking-[0.3em] text-gold-300 animate-fade-up">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse-glow" />
-            Event Production Media Team
-          </span>
-
-          <h1 className="mt-8 font-black leading-[1.02] tracking-tight">
+          <h1 className="font-black leading-[1.02] tracking-tight">
             <span className="block overflow-hidden">
               <span className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline-faint">
                 KIẾN TẠO
