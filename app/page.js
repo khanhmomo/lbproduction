@@ -81,39 +81,10 @@ const departments = [
 const socials = [
   {
     name: 'Facebook',
-    href: 'https://facebook.com/lbproduction',
+    href: 'https://www.facebook.com/LBproductionvn',
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
         <path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H8v3h2.7v7h2.8z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'Instagram',
-    href: 'https://instagram.com/lbproduction',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    name: 'YouTube',
-    href: 'https://youtube.com/@lbproduction',
-    icon: (
-      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.9C18.2 5 12 5 12 5s-6.2 0-7.8.3A2.6 2.6 0 0 0 2.4 7.2 27.4 27.4 0 0 0 2 12a27.4 27.4 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.9c1.6.3 7.8.3 7.8.3s6.2 0 7.8-.3a2.6 2.6 0 0 0 1.8-1.9A27.4 27.4 0 0 0 22 12a27.4 27.4 0 0 0-.4-4.8zM10 15.2V8.8l5.2 3.2-5.2 3.2z" />
-      </svg>
-    ),
-  },
-  {
-    name: 'TikTok',
-    href: 'https://tiktok.com/@lbproduction',
-    icon: (
-      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M16.6 3c.4 2 1.8 3.6 3.9 3.9v3c-1.5 0-2.9-.5-3.9-1.2v6.6a5.9 5.9 0 1 1-5.9-5.9c.3 0 .7 0 1 .1v3.1a2.8 2.8 0 1 0 1.9 2.7V3h3z" />
       </svg>
     ),
   },
@@ -250,8 +221,8 @@ export default function Home() {
         >
           <h1 className="font-black leading-[1.02] tracking-tight">
             <span className={heroRevealed ? 'block overflow-visible' : 'block overflow-hidden'}>
-              <span className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline-faint">
-                KIẾN TẠO
+              <span className="hero-line pt-[0.4em] pb-[0.15em] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-outline-faint">
+                WE BECOME, WHAT WE CREATE
               </span>
             </span>
             <span className={heroRevealed ? 'block overflow-visible' : 'block overflow-hidden'}>
@@ -259,7 +230,7 @@ export default function Home() {
                 className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
                 style={{ animationDelay: '0.12s' }}
               >
-                TRẢI NGHIỆM
+                KIẾN TẠO BẢN SẮC
               </span>
             </span>
             <span className={heroRevealed ? 'block overflow-visible' : 'block overflow-hidden'}>
@@ -267,16 +238,14 @@ export default function Home() {
                 className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
                 style={{ animationDelay: '0.24s' }}
               >
-                KHÔNG GIỚI HẠN
+                ĐỊNH HÌNH GIÁ TRỊ
               </span>
             </span>
           </h1>
 
           <p className="mt-8 text-base md:text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed animate-fade-up" style={{ animationDelay: '0.5s' }}>
-            LBProduction — event production media team chuyên{' '}
-            <span className="text-gold-300">motion graphic, 3D visual</span> và
-            sản xuất sự kiện. Chúng tôi biến ý tưởng thành những thước phim
-            sống động.
+            Sáng tạo ý tưởng. Kiến tạo trải nghiệm. Định hình bản sắc qua từng
+            sản phẩm
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: '0.65s' }}>
@@ -351,10 +320,15 @@ export default function Home() {
               nghiệp
             </h2>
             <p className="text-gray-400 leading-relaxed">
-              Được thành lập từ niềm đam mê sáng tạo và kể chuyện bằng hình ảnh,
-              LBProduction đã đồng hành cùng nhiều thương hiệu lớn để mang đến
-              những sự kiện và sản phẩm media đầy ấn tượng. Chúng tôi tin rằng
-              mỗi sự kiện là một câu chuyện đáng được kể theo cách riêng.
+              LBProduction là đội ngũ sáng tạo và sản xuất truyền thông chuyên
+              nghiệp, hoạt động trong lĩnh vực Event Production, Media, Motion
+              Graphic và 3D Visual.
+            </p>
+            <p className="text-gray-400 leading-relaxed mt-4">
+              Chúng tôi biến những ý tưởng thành sản phẩm thực tế bằng tư duy
+              sáng tạo, kỹ thuật chuyên môn và tinh thần không ngừng đổi mới.
+              Bởi mỗi sản phẩm được tạo ra không chỉ thể hiện năng lực của chúng
+              tôi, mà còn định hình giá trị và bản sắc mà chúng tôi theo đuổi
             </p>
             <a
               href="/about"
@@ -599,11 +573,11 @@ export default function Home() {
               Đội ngũ <span className="text-gradient-gold">nhân sự</span>
             </h2>
             <p className="text-gray-400 leading-relaxed mb-10">
-              LBProduction sở hữu đội ngũ nhân sự có kinh nghiệm thực chiến
-              trong lĩnh vực media và sự kiện, đồng thời kết hợp giữa tư duy
-              sáng tạo và khả năng triển khai thực tế. Nhờ đó, mỗi dự án không
-              chỉ được thực hiện đúng tiến độ mà còn đảm bảo chất lượng và
-              tính hiệu quả.
+              LBProduction là tập thể sáng tạo hội tụ những cá nhân giàu kinh
+              nghiệm trong lĩnh vực Media và Event Production. Với sự kết hợp
+              giữa tư duy nghệ thuật, chuyên môn vững vàng và khả năng xử lý
+              linh hoạt, chúng tôi cùng nhau biến ý tưởng thành những sản phẩm
+              chỉnh chu, khác biệt và mang dấu ấn riêng trong từng dự án.
             </p>
             <div className="space-y-4">
               {departments.map((d, idx) => (

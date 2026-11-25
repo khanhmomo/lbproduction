@@ -7,10 +7,7 @@ const footerLinks = [
 ];
 
 const socials = [
-  { label: 'Facebook', href: 'https://facebook.com/lbproduction' },
-  { label: 'Instagram', href: 'https://instagram.com/lbproduction' },
-  { label: 'YouTube', href: 'https://youtube.com/@lbproduction' },
-  { label: 'TikTok', href: 'https://tiktok.com/@lbproduction' },
+  { label: 'Facebook', href: 'https://www.facebook.com/LBproductionvn' },
 ];
 
 export default function Footer() {
@@ -28,8 +25,8 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-4 text-sm text-gray-500 leading-relaxed">
-              Event production media team — motion graphic, 3D visual và sản
-              xuất sự kiện. Biến ý tưởng thành những thước phim sống động.
+              Sáng tạo ý tưởng. Kiến tạo trải nghiệm. Định hình bản sắc qua
+              từng sản phẩm
             </p>
             {/* TODO: thay bằng email thật của LBProduction */}
             <a
