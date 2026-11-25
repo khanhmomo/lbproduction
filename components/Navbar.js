@@ -34,8 +34,14 @@ export default function Navbar() {
           scrolled ? 'h-16' : 'h-20'
         }`}
       >
-        <Link href="/" className="text-2xl font-bold tracking-tight text-white">
-          LB<span className="text-gold-400">Production</span>
+        <Link href="/" className="flex items-center" aria-label="LBProduction home">
+          <img
+            src="/logo.png"
+            alt="LBProduction"
+            className={`w-auto object-contain transition-all duration-500 ${
+              scrolled ? 'h-8' : 'h-10'
+            }`}
+          />
         </Link>
 
         <ul className="hidden md:flex items-center gap-1 text-sm font-medium">

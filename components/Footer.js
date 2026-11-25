@@ -20,8 +20,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
           <div className="max-w-xs">
-            <Link href="/" className="text-2xl font-bold tracking-tight">
-              LB<span className="text-gold-400">Production</span>
+            <Link href="/" className="inline-flex items-center" aria-label="LBProduction home">
+              <img
+                src="/logo.png"
+                alt="LBProduction"
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             <p className="mt-4 text-sm text-gray-500 leading-relaxed">
               Event production media team — motion graphic, 3D visual và sản

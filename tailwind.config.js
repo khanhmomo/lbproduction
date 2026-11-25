@@ -19,7 +19,7 @@ module.exports = {
         darker: '#050506',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
+        sans: ['Neue Power', 'var(--font-inter)', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.04em',

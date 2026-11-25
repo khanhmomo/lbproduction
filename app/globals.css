@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Neue Power';
+  src: url('/1FTV%20VIP%20NeuePower-Medium.ttf') format('truetype');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Power';
+  src: url('/1FTV%20VIP%20Neue%20Power%20Ultra.ttf') format('truetype');
+  font-weight: 700 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ===== Design tokens ===== */
 :root {
   --mx: 50%;
