@@ -147,7 +147,13 @@ export default function Home() {
   const [timecode, setTimecode] = useState('00:00:00:00');
   const [works, setWorks] = useState([]);
   const [worksLoading, setWorksLoading] = useState(true);
+  const [heroRevealed, setHeroRevealed] = useState(false);
   const heroContentRef = useRef(null);
+
+  useEffect(() => {
+    const t = setTimeout(() => setHeroRevealed(true), 1400);
+    return () => clearTimeout(t);
+  }, []);
 
   // Index dự án nổi bật — 5 dự án mới nhất
   useEffect(() => {
@@ -243,12 +249,12 @@ export default function Home() {
           className="relative text-center max-w-5xl will-change-transform"
         >
           <h1 className="font-black leading-[1.02] tracking-tight">
-            <span className="block overflow-hidden">
+            <span className={heroRevealed ? 'block overflow-visible' : 'block overflow-hidden'}>
               <span className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-outline-faint">
                 KIẾN TẠO
               </span>
             </span>
-            <span className="block overflow-hidden">
+            <span className={heroRevealed ? 'block overflow-visible' : 'block overflow-hidden'}>
               <span
                 className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gradient-gold"
                 style={{ animationDelay: '0.12s' }}
@@ -256,7 +262,7 @@ export default function Home() {
                 TRẢI NGHIỆM
               </span>
             </span>
-            <span className="block overflow-hidden">
+            <span className={heroRevealed ? 'block overflow-visible' : 'block overflow-hidden'}>
               <span
                 className="hero-line pt-[0.4em] pb-[0.15em] text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
                 style={{ animationDelay: '0.24s' }}
